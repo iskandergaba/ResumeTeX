@@ -4,5 +4,5 @@
 \LoadClass[a4paper]{article}
 
 % Define default settings
-\AtBeginDocument{\vspace*{-40pt}}
+\AtBeginDocument{\vspace*{-50pt}}
 
