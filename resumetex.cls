@@ -51,8 +51,9 @@
 
 % \lineunder command
 \newcommand{\lineunder} {
-	\vspace*{-8pt} \\
-	\hspace{-18pt} \hrulefill \\
+	\vspace*{-4pt} \\
+	\hspace*{-18pt} \hrulefill \\
+	\vspace*{4pt}
 }
 
 % \name command
@@ -81,7 +82,7 @@
 % \header command
 % #1: Header title
 \newcommand{\header}[1] {
-	\hspace{-18pt} \vspace{4pt} #1 \lineunder \vspace{4pt}
+	\hspace{-18pt} #1 \lineunder
 }
 
 % \headersc command (same as \header but with small caps)
