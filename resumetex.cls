@@ -91,13 +91,6 @@
 	\header{\textsc{#1}}
 }
 
-% \keyvalpair command
-% #1: Key
-% #2: Value
-\newcommand{\keyvalpair}[2] {
-	\textbf{#1:} & #2
-}
-
 % \school command
 % #1: School name
 % #2: School location
@@ -114,7 +107,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % keyvaltable environment
-\newenvironment{keyvaltable}{
-	\begin{tabular}{l p{0.8\linewidth}}}{
+\newenvironment{keyvaltable}
+{
+	% \keyvalpair command
+	% #1: Key
+	% #2: Value
+	\newcommand{\keyvalpair}[2] {
+		\textbf{##1:} & ##2 \\
+	}
+	\begin{tabular}{l p{0.8\linewidth}}
+}
+{
 	\end{tabular}
 }
