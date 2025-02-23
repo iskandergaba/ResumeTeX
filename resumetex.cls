@@ -18,6 +18,7 @@
 \RequirePackage{tikz}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
+\RequirePackage{enumitem}
 \RequirePackage{fullpage}
 \RequirePackage{textcomp}
 \RequirePackage{makecell}
@@ -119,4 +120,13 @@
 }
 {
 	\end{tabular}
+}
+
+% achievements environment
+\newenvironment{achievements}
+{
+	\begin{itemize}[itemsep=1pt]
+}
+{
+	\end{itemize}
 }

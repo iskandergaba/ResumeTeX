@@ -1,3 +1,4 @@
+% Font and language setup
 \usepackage{fontspec}
 \usepackage[english,
             bidi=basic,
@@ -9,3 +10,12 @@
 \setmainfont[Ligatures=TeX]{LatinModernRoman}
 \babelfont[arabic]{rm}[Language=Default]{Amiri}
 \defaultfontfeatures{Renderer=Harfbuzz}
+
+% achievements environment with no item separation
+\renewenvironment{achievements}
+{
+	\begin{itemize}[noitemsep]
+	}
+	{
+	\end{itemize}
+}
