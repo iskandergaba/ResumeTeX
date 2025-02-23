@@ -100,7 +100,17 @@
 \newcommand{\school} [4] {
 	\textbf{#1} \hfill #2\\
 	#3 \hfill #4\\
-	\vspace{2mm}
+	\vspace{4pt}
+}
+
+% \experience command
+% #1: Entity name
+% #2: Entity location
+% #3: Experience Role
+% #4: Work years
+\newcommand{\experience} [4] {
+	\textbf{#1} \hfill #2\\
+	\textit{#3} \hfill #4\\
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -125,7 +135,7 @@
 % achievements environment
 \newenvironment{achievements}
 {
-	\begin{itemize}[itemsep=1pt]
+	\begin{itemize}[topsep=4pt, itemsep=1pt]
 }
 {
 	\end{itemize}
