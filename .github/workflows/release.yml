@@ -27,9 +27,13 @@ jobs:
       run: |
         cd ${{ matrix.lang }}
         lualatex -interaction=nonstopmode cv.tex
+        lualatex -interaction=nonstopmode cv-avatar.tex
         mv cv.pdf ${{ matrix.lang }}.pdf
+        mv cv-avatar.pdf ${{ matrix.lang }}-avatar.pdf
         
     - name: Uplaod PDF to GitHub Release
-      run: gh release upload ${{ github.event.release.tag_name }} ${{ matrix.lang }}/${{ matrix.lang }}.pdf --clobber
+      run: |
+        gh release upload ${{ github.event.release.tag_name }} ${{ matrix.lang }}/${{ matrix.lang }}.pdf
+        gh release upload ${{ github.event.release.tag_name }} ${{ matrix.lang }}/${{ matrix.lang }}-avatar.pdf
       env:
         GH_TOKEN: ${{ github.token }}

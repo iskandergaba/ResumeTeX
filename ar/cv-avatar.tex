@@ -1,0 +1,58 @@
+% Document class configuration
+\documentclass{../resumetex}
+
+% Language-specific configuration
+\input{conf/default}
+
+% PDF file title
+\hypersetup{
+	pdftitle=السيرة الذاتية,
+}
+
+\begin{document}
+
+%==== Profile ====%
+\input{0-profile/default-avatar}
+
+%==== Education ====%
+\header{التعليم}
+\input{1-education/1-scranton-uni/default}
+
+%==== Experience ====%
+\header{الخبرات}
+\input{2-experience/2013-05-dunder-manager/long}
+\input{2-experience/2010-03-dunder-assist/short}
+\input{2-experience/2008-03-staples-assoc/short}
+\input{2-experience/2005-03-dunder-assist/short}
+
+%==== Skills ====%
+\header{المهارات}
+\begin{keyvaltable}
+	\keyvalpair{السّمات}{\input{3-skills/1-traits/default}}
+	\keyvalpair{المواهب}{\input{3-skills/2-talents/default}}
+\end{keyvaltable}
+
+%==== Languages ====%
+\header{اللّغات}
+\begin{keyvaltable}
+	\keyvalpair{الإنجليزية}{\input{4-languages/1-english/default}}
+	\keyvalpair{الألمانية}{\input{4-languages/2-german/default}}
+	\keyvalpair{الدوثراكية}{\input{4-languages/3-dothraki/default}}
+\end{keyvaltable}
+
+%==== Projects ====%
+\header{المشاريع}
+\input{5-projects/1-schrute-farms/short}
+\input{5-projects/2-schrute-gym/short}
+\input{5-projects/3-sesame-daycare/short}
+
+%==== Publications ====%
+%\header{المنشورات الأكادمية}
+%\input{6-publications/2009-06-watercooler-info/long}
+
+%==== Honors and Awards ====%
+\header{الجوائز والمِنح}
+\input{7-honors-awards/2010-dundie/short}
+\input{7-honors-awards/2005-salesman-month/short}
+
+\end{document}
