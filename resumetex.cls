@@ -130,6 +130,7 @@
 }
 {
 	\end{tabular}
+	\vspace{4pt}
 }
 
 % achievements environment
