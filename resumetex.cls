@@ -113,6 +113,20 @@
 	\textit{#3} \hfill #4\\
 }
 
+% \experience command
+% #1: Publication title
+% #2: Publication date
+% #3: Publication outlet
+% #4: Publication description
+% #5: Publication url
+\newcommand{\publication}[5] {
+	\textbf{#1} \hfill #2\\
+	\textit{#3}\\
+	#4\\
+	\href{#5}{#5}
+	\vspace{4pt}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ResumeTeX Environments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
