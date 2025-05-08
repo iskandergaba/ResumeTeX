@@ -47,6 +47,13 @@
 \raggedright
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ResumeTeX Variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\elemsep}{2pt}
+\newcommand{\cvsectionpad}{4pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ResumeTeX Commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -83,13 +90,7 @@
 % \header command
 % #1: Header title
 \newcommand{\header}[1] {
-	\hspace{-18pt} #1 \lineunder
-}
-
-% \headersc command (same as \header but with small caps)
-% #1: Header title
-\newcommand{\headersc}[1] {
-	\header{\textsc{#1}}
+	\hspace{-18pt} #1
 }
 
 % \school command
@@ -97,11 +98,13 @@
 % #2: School location
 % #3: School degree
 % #4: School years
-\newcommand{\school} [4] {
+\makeatletter
+\newcommand{\school}[4] {
 	\textbf{#1} \hfill #2\\
 	#3 \hfill #4\\
-	\vspace{4pt}
+	\vspace{\elemsep}
 }
+\makeatother
 
 % \experience command
 % #1: Entity name
@@ -123,13 +126,30 @@
 	\textbf{#1} \hfill #2\\
 	\textit{#3}\\
 	#4\\
-	\href{#5}{#5}
-	\vspace{4pt}
+	\href{#5}{#5}\\
+	\vspace{\elemsep}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ResumeTeX Environments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% cvsection environment
+% #1: Section title
+\newenvironment{cvsection}[1]
+{
+	\header{#1}\\
+	\vspace*{-4pt}
+	\hspace*{-18pt} \hrulefill \\
+	\vspace*{\cvsectionpad}
+	\ignorespaces
+}
+{
+	\vspace*{-\elemsep}
+	\vspace*{\cvsectionpad}
+	\ignorespacesafterend
+}
+
 
 % keyvaltable environment
 \newenvironment{keyvaltable}
@@ -138,13 +158,12 @@
 	% #1: Key
 	% #2: Value
 	\newcommand{\keyvalpair}[2] {
-		\textbf{##1:} & ##2 \\
+		\textbf{##1:} & ##2 \vspace{\elemsep}\\
 	}
 	\begin{tabular}{l p{0.8\linewidth}}
 }
 {
 	\end{tabular}
-	\vspace{4pt}
 }
 
 % achievements environment
