@@ -116,7 +116,16 @@
 	\textit{#3} \hfill #4\\
 }
 
-% \experience command
+% \project command
+% #1: Publication name
+% #2: Publication description
+\newcommand{\project}[2] {
+	\textbf{#1}\\
+	#2\\
+	\vspace*{\elemsep}
+}
+
+% \publication command
 % #1: Publication title
 % #2: Publication date
 % #3: Publication outlet
@@ -139,7 +148,7 @@
 \newenvironment{cvsection}[1]
 {
 	\header{#1}\\
-	\vspace*{-4pt}
+	\vspace*{-\cvsectionpad}
 	\hspace*{-18pt} \hrulefill \\
 	\vspace*{\cvsectionpad}
 	\ignorespaces
