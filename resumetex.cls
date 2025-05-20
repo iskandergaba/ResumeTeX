@@ -50,19 +50,12 @@
 % ResumeTeX Variables
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\elemsep}{2pt}
-\newcommand{\cvsectionpad}{4pt}
+\newcommand{\elemsep}{0.2em}
+\newcommand{\cvsectionpad}{0.4em}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ResumeTeX Commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \lineunder command
-\newcommand{\lineunder} {
-	\vspace*{-4pt} \\
-	\hspace*{-18pt} \hrulefill \\
-	\vspace*{4pt}
-}
 
 % \name command
 % #1: Name
@@ -151,12 +144,12 @@
 	\vspace*{-\cvsectionpad}
 	\hspace*{-18pt} \hrulefill \\
 	\vspace*{\cvsectionpad}
-	\ignorespaces
+	%\ignorespaces
 }
 {
 	\vspace*{-\elemsep}
 	\vspace*{\cvsectionpad}
-	\ignorespacesafterend
+	%\ignorespacesafterend
 }
 
 
@@ -178,7 +171,7 @@
 % achievements environment
 \newenvironment{achievements}
 {
-	\begin{itemize}[topsep=4pt, itemsep=1pt]
+	\begin{itemize}[topsep=0.5em, itemsep=0.125em]
 }
 {
 	\end{itemize}
