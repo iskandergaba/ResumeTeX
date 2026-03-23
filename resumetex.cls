@@ -24,7 +24,6 @@
 \RequirePackage{makecell}
 \RequirePackage{hyperref}
 \RequirePackage{adjustbox}
-\RequirePackage[T1]{fontenc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Default Settings
