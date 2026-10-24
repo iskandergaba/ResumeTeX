@@ -2,14 +2,11 @@
 \usepackage{fontspec}
 \usepackage[english,
             bidi=basic,
-            headfoot=arabic,
-            layout=counters.tabular]{babel}
+            layout=tabular]{babel}
 \babelprovide[import, main,
             justification=kashida,
             transforms = kashida.plain]{arabic}
-\setmainfont[Ligatures=TeX]{LatinModernRoman}
 \babelfont[arabic]{rm}[Language=Default]{Amiri}
-\defaultfontfeatures{Renderer=Harfbuzz}
 
 % achievements environment with no item separation
 \renewenvironment{achievements}
