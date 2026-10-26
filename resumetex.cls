@@ -23,6 +23,7 @@
 \RequirePackage{textcomp}
 \RequirePackage{makecell}
 \RequirePackage{hyperref}
+\RequirePackage{accsupp}
 \RequirePackage{adjustbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,6 +56,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ResumeTeX Commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \aka command (renders #1, extracts as "#1 (#2)" for ATS parsers)
+% #1: Visiible text
+% #2: Alternative text
+\newcommand{\aka}[2]{%
+	\BeginAccSupp{method=pdfstringdef, ActualText={#1 (#2)}}%
+	\mbox{#1}%
+	\EndAccSupp{}%
+}
 
 % \name command
 % #1: Name
