@@ -66,6 +66,19 @@
 	\EndAccSupp{}%
 }
 
+% \covert command (renders nothing, extracts as #1 for ATS parsers)
+% #1: Hidden text
+\newcommand{\covert}[1]{%
+	\def\covert@text{#1}%
+	\futurelet\covert@next\covert@fold%
+}
+\def\covert@fold{%
+	\BeginAccSupp{method=pdfstringdef, ActualText={{\covert@text\ifx\covert@next\@sptoken\space\fi}}}%
+	\char"200B%
+	\EndAccSupp{}%
+	\ifx\covert@next\@sptoken\space\ignorespaces\fi%
+}
+
 % \name command
 % #1: Name
 \newcommand{\name}[1] {
