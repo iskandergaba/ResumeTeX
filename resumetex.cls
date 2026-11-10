@@ -17,10 +17,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{tikz}
 \RequirePackage{amsmath}
-\RequirePackage{amssymb}
 \RequirePackage{enumitem}
 \RequirePackage{fullpage}
-\RequirePackage{textcomp}
 \RequirePackage{makecell}
 \RequirePackage{hyperref}
 \RequirePackage{accsupp}
@@ -33,8 +31,6 @@
 % PDF file settings
 \hypersetup{
 	colorlinks=true,
-	linkcolor=green,
-	filecolor=magenta,
 	urlcolor=blue,
 	%pdfpagemode=FullScreen,
 }
@@ -100,13 +96,11 @@
 % #2: School location
 % #3: School degree
 % #4: School years
-\makeatletter
 \newcommand{\school}[4] {
 	\textbf{#1} \hfill #2\\
 	#3 \hfill #4\\
 	\vspace{\elemsep}
 }
-\makeatother
 
 % \experience command
 % #1: Entity name
