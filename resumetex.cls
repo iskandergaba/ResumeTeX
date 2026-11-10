@@ -135,6 +135,16 @@
 	\vspace{\elemsep}
 }
 
+% \award command
+% #1: Award title
+% #2: Awarding entity and year
+% #3: Award description
+\newcommand{\award}[3] {
+	\textbf{#1} \hfill #2\\
+	#3\\
+	\vspace*{2mm}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ResumeTeX Environments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
