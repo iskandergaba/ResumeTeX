@@ -12,28 +12,28 @@ jobs:
       contents: write
     strategy:
       matrix:
-        lang: ${{ fromJson(vars.LANGS) }}
+        lang: [en, fr, ar]
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-    - name: Install GitHub CLI
-      run: |
-        apt-get update
-        apt-get install -y gh
-        git config --global --add safe.directory $GITHUB_WORKSPACE
+      - name: Install GitHub CLI
+        run: |
+          apt-get update
+          apt-get install -y gh
+          git config --global --add safe.directory $GITHUB_WORKSPACE
 
-    - name: Build the CV template
-      run: |
-        cd ${{ matrix.lang }}
-        lualatex -interaction=nonstopmode cv.tex
-        lualatex -interaction=nonstopmode cv-avatar.tex
-        mv cv.pdf ${{ matrix.lang }}.pdf
-        mv cv-avatar.pdf ${{ matrix.lang }}-avatar.pdf
-        
-    - name: Upload PDF to GitHub Release
-      run: |
-        gh release upload ${{ github.event.release.tag_name }} ${{ matrix.lang }}/${{ matrix.lang }}.pdf
-        gh release upload ${{ github.event.release.tag_name }} ${{ matrix.lang }}/${{ matrix.lang }}-avatar.pdf
-      env:
-        GH_TOKEN: ${{ github.token }}
+      - name: Build the CV template
+        run: |
+          cd ${{ matrix.lang }}
+          lualatex -interaction=nonstopmode cv.tex
+          lualatex -interaction=nonstopmode cv-avatar.tex
+          mv cv.pdf ${{ matrix.lang }}.pdf
+          mv cv-avatar.pdf ${{ matrix.lang }}-avatar.pdf
+
+      - name: Upload PDF to GitHub Release
+        run: |
+          gh release upload "$GITHUB_REF_NAME" ${{ matrix.lang }}/${{ matrix.lang }}.pdf
+          gh release upload "$GITHUB_REF_NAME" ${{ matrix.lang }}/${{ matrix.lang }}-avatar.pdf
+        env:
+          GH_TOKEN: ${{ github.token }}
