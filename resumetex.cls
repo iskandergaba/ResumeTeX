@@ -42,6 +42,26 @@
 % RTL-LTR compatibility configuration
 \raggedright
 
+% Real space characters in the PDF text so extracted words do not merge
+\directlua{
+	local GLUE, GLYPH = node.id("glue"), node.id("glyph")
+	local function addspaces(head)
+		for n in node.traverse(head) do
+			if n.head then
+				n.head = addspaces(n.head)
+			elseif n.id == GLUE and n.width > 0 and not n.leader and n.prev and n.prev.id == GLYPH
+					and font.getfont(n.prev.font).characters[32] then
+				local space = node.new(GLYPH)
+				space.font, space.char = n.prev.font, 32
+				head = node.insert_before(head, n, space)
+				n.width = n.width - space.width
+			end
+		end
+		return head
+	end
+	luatexbase.add_to_callback("pre_shipout_filter", function(box) box.head = addspaces(box.head) return true end, "realspaces")
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ResumeTeX Variables
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
